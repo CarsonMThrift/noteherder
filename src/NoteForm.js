@@ -13,6 +13,10 @@ class NoteForm extends Component {
     this.props.removeNote(this.props.currentNote)
   }
 
+  handleSaveAndNew = (ev)=> {
+    //ToDo: save the current note and reset screen to new note (look at sidebar)
+  }
+
   render() {
     return (
       <div className="NoteForm">
@@ -39,6 +43,12 @@ class NoteForm extends Component {
             onClick={this.handleRemove}
           >
             <i className="fa fa-trash-o"></i>
+          </button>
+          <button
+            type="button"
+            onClick={this.handleSaveAndNew}
+          >
+            <i className="fa fa-plus"></i>
           </button>
         </form>
       </div>
