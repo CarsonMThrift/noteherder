@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 import './App.css'
 import Main from './Main'
@@ -40,13 +41,13 @@ class App extends Component {
     if (!note.id) {
       note.id = `note-${Date.now()}`
     }
-    const notes = {...this.state.notes}
+    const notes = { ...this.state.notes }
     notes[note.id] = note
     this.setState({ notes, currentNote: note })
   }
 
   removeNote = (note) => {
-    const notes = {...this.state.notes}
+    const notes = { ...this.state.notes }
     notes[note.id] = null
     this.setState(
       { notes },
@@ -81,11 +82,11 @@ class App extends Component {
     auth
       .signOut()
       .then(
-        () => {
-          base.removeBinding(this.ref)
-          this.resetCurrentNote()
-          this.setState({ uid: null, notes: {} })
-        }
+      () => {
+        base.removeBinding(this.ref)
+        this.resetCurrentNote()
+        this.setState({ uid: null, notes: {} })
+      }
       )
   }
 
@@ -93,7 +94,7 @@ class App extends Component {
     this.setState({ currentNote: note })
   }
 
-  renderMain = () => {
+  render() {
     const noteData = {
       notes: this.state.notes,
       currentNote: this.state.currentNote,
@@ -105,19 +106,23 @@ class App extends Component {
       resetCurrentNote: this.resetCurrentNote,
       signOut: this.signOut,
     }
-    return (
-      <Main
-        {...noteData}
-        {...actions}
-      />
-    )
-  }
 
-  render() {
     return (
-      <div className="App">
-        { this.signedIn() ? this.renderMain() : <SignIn /> }
-      </div>
+      <div className="App" >
+        <Switch>
+          <Route path="/notes" render={() => (
+            <Main
+              {...noteData}
+              {...actions}
+            />
+          )} />
+          {/*SignIn is auto return value*/}
+          <Route path="/sign-in" component={SignIn} />
+          {/*Default redirects to the notes page*/}
+          <Route render={() => <Redirect to="/notes"/>} />
+        </Switch>
+        {/*{ this.signedIn() ? this.renderMain() : <SignIn /> }*/}
+      </div >
     );
   }
 }
