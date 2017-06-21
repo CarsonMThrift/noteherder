@@ -3,6 +3,13 @@ import React, { Component } from 'react'
 import './NoteForm.css'
 
 class NoteForm extends Component {
+
+  componenWillReceiveProps(nextProps) {
+
+    
+
+  }
+
   handleChanges = (ev) => {
     const note = {...this.props.currentNote}
     note[ev.target.name] = ev.target.value
