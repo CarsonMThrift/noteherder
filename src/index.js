@@ -9,7 +9,7 @@ import './index.css';
 
 ReactDOM.render(
         <Router>
-            <Route component={App} render={() => <App />} />
+            <Route render={() => <App />} />
         </Router>,
         document.getElementById('root')
 );
