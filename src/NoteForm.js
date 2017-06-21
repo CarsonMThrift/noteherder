@@ -3,11 +3,17 @@ import React, { Component } from 'react'
 import './NoteForm.css'
 
 class NoteForm extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.match.params.id) {
+      const newId = nextProps.match.params.id
 
-  componenWillReceiveProps(nextProps) {
-
-    
-
+      if (newId !== this.props.currentNote.id) {
+        const note = nextProps.notes[newId]
+        if (note) {
+          this.props.setCurrentNote(note)
+        }
+      }
+    }
   }
 
   handleChanges = (ev) => {
@@ -18,10 +24,6 @@ class NoteForm extends Component {
 
   handleRemove = (ev) => {
     this.props.removeNote(this.props.currentNote)
-  }
-
-  handleSaveAndNew = (ev)=> {
-    //ToDo: save the current note and reset screen to new note (look at sidebar)
   }
 
   render() {
@@ -50,12 +52,6 @@ class NoteForm extends Component {
             onClick={this.handleRemove}
           >
             <i className="fa fa-trash-o"></i>
-          </button>
-          <button
-            type="button"
-            onClick={this.handleSaveAndNew}
-          >
-            <i className="fa fa-plus"></i>
           </button>
         </form>
       </div>

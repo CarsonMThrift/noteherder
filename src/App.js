@@ -18,9 +18,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    
     this.getUserFromLocalStorage()
-
     auth.onAuthStateChanged(
       (user) => {
         if (user) {
@@ -31,13 +29,9 @@ class App extends Component {
   }
 
   getUserFromLocalStorage() {
-
     const uid = localStorage.getItem('uid')
-
-    if(!uid) return
-
-    this.setState({ uid }) 
-
+    if (!uid) return
+    this.setState({ uid })
   }
 
   syncNotes = () => {
@@ -54,13 +48,13 @@ class App extends Component {
     if (!note.id) {
       note.id = `note-${Date.now()}`
     }
-    const notes = { ...this.state.notes }
+    const notes = {...this.state.notes}
     notes[note.id] = note
     this.setState({ notes, currentNote: note })
   }
 
   removeNote = (note) => {
-    const notes = { ...this.state.notes }
+    const notes = {...this.state.notes}
     notes[note.id] = null
     this.setState(
       { notes },
@@ -96,12 +90,12 @@ class App extends Component {
     auth
       .signOut()
       .then(
-      () => {
-        base.removeBinding(this.ref)
-        this.resetCurrentNote()
-        localStorage.removeItem('uid')
-        this.setState({ uid: null, notes: {} })
-      }
+        () => {
+          this.resetCurrentNote()
+          localStorage.removeItem('uid')
+          this.setState({ uid: null, notes: {} })
+          base.removeBinding(this.ref)
+        }
       )
   }
 
@@ -123,24 +117,21 @@ class App extends Component {
     }
 
     return (
-      <div className="App" >
+      <div className="App">
         <Switch>
-          {/*If not signed in, redirect to sign in page*/}
           <Route path="/notes" render={() => (
-            this.signedIn() 
-              ? <Main {...noteData} {...actions}/>
+            this.signedIn()
+              ? <Main {...noteData} {...actions} />
               : <Redirect to="/sign-in" />
           )} />
-          <Route path="/sign-in" render ={() => (
+          <Route path="/sign-in" render={() => (
             !this.signedIn()
               ? <SignIn />
               : <Redirect to="/notes" />
           )} />
-          {/*Default redirects to the notes page*/}
-          <Route render={() => <Redirect to="/notes"/>} />
+          <Route render={() => <Redirect to="/notes" />} />
         </Switch>
-        {/*{ this.signedIn() ? this.renderMain() : <SignIn /> }*/}
-      </div >
+      </div>
     );
   }
 }
