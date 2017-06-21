@@ -2,7 +2,7 @@
 
   background-color: white;
 
-  border: 1;
+  border: 0;
   border-radius: 10px;
   border-color: white;
 
@@ -25,8 +25,6 @@
   text-align: center;
 
   display: inline-block;
-
-  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
 
   position: relative;
 
@@ -52,7 +50,7 @@
 
 .SignInButton::before,
 .SignInButton::after {
-  border: 2px solid transparent;
+  border: 2.5px solid transparent;
   border-radius: 10px;
   width: 0;
   height: 0;
@@ -79,8 +77,8 @@
 
 .SignInButton:hover::before {
   border-radius: 10px;
-  border-top-color: steelblue; 
-  border-right-color: steelblue;
+  border-top-color: lime; 
+  border-right-color: lime;
   transition:
     width 0.25s ease-out, 
     height 0.25s ease-out 0.25s; 
@@ -88,9 +86,10 @@
 
 .SignInButton:hover::after {
   border-radius: 10px;
-  border-bottom-color: steelblue;
-  border-left-color: steelblue;
+  border-bottom-color: lime;
+  border-left-color: lime;
   transition:
+    border-radius 10px,
     border-color 0s ease-out 0.5s, 
     width 0.25s ease-out 0.5s, 
     height 0.25s ease-out 0.75s;
@@ -98,25 +97,25 @@
 
 
 .SignInButton::after {
+  border-radius: 10px;
   top: 0;
   left: 0;
 }
 
 .SignInButton:hover::before {
+  border-top-color: lime;
+  border-right-color: lime;
   border-radius: 10px;
-  border-top-color: steelblue;
-  border-right-color: steelblue;
 }
 
 .SignInButton:hover::after {
   border-radius: 10px;
-  border-bottom-color: steelblue;
-  border-left-color: steelblue;
+  border-bottom-color: lime;
+  border-left-color: lime;
   transition: 
     height 0.25s ease-out,
     width 0.25s ease-out 0.25s;
 }
-
 
 .SignInButton span {
   cursor: pointer;

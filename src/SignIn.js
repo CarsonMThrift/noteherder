@@ -41,7 +41,7 @@ const SignIn = () => {
         Sign In With Twitter
 
         
-        <img src="http://www.tech-wd.com/wd/wp-content/uploads/2013/01/Logo-Twitter.jpg.jpg" className ="logo"/>
+        <img src="https://meta.metaebene.me/media/metaebene/images/sidebar/twitter-128x128.png" className ="logo"/>
       </button>
 
     </div>
