@@ -1,7 +1,8 @@
 import React from 'react'
 
 import './SignIn.css'
-import { auth, githubProvider, googleProvider } from './base'
+import { auth, githubProvider, googleProvider, twitterProvider } from './base'
+
 
 const SignIn = () => {
   const authenticate = (provider) => {
@@ -9,19 +10,39 @@ const SignIn = () => {
   }
 
   return (
-    <div>
+
+    <div className="SignIn">
+
+      <h1>Login</h1>
+
+      
       <button
-        className="SignIn"
+        className="SignInButton"
+        id="leftmost"
         onClick={() => authenticate(githubProvider)}
       >
         Sign In With GitHub
+        <img src="https://maxcdn.icons8.com/Share/icon/nolan/logos//github1600.png" className ="logo"/>
       </button>
       <button
-        className="SignIn"
+        className="SignInButton"
         onClick={() => authenticate(googleProvider)}
       >
         Sign In With Google
+
+        
+        <img src="https://community.dur.ac.uk/glc.lrt/pics/Logos/g+icon.png" className ="logo"/>
       </button>
+      <button
+        className="SignInButton"
+        onClick={() => authenticate(twitterProvider)}
+      >
+        Sign In With Twitter
+
+        
+        <img src="http://www.tech-wd.com/wd/wp-content/uploads/2013/01/Logo-Twitter.jpg.jpg" className ="logo"/>
+      </button>
+
     </div>
   )
 }

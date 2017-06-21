@@ -1,10 +1,18 @@
-.SignIn {
-  background-color: #008BF8;
-  border: 0;
+
+
+
+.SignInButton {
+
+  background-color: white;
+  border: 1;
   border-radius: 5px;
-  color: white;
+  border-color: steelblue;
+  color: steelblue;
   display: block;
   margin: 0 auto;
+  margin-top: 2rem; 
+  margin-bottom: 5rem;
+  margin-left: 2rem;
   padding: 20px;
   -webkit-transition: background 0.2s;
   -o-transition: background 0.2s;
@@ -12,4 +20,34 @@
   font-family: 'helvetica neue', sans-serif;
   font-size: 20px;
   font-weight: 200;
+  text-align: center;
+  display: inline-block;
+
 }
+
+#leftmost {
+  margin-left: 35rem;  
+}
+
+.logo {
+
+  height : 34px;
+  width : 34px;
+  margin-left: 15px;
+
+}
+
+.SignIn{
+  margin-top: 20rem;
+  background-color: steelblue;
+
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 600%;
+  color: white;
+}
+
