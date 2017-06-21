@@ -19,7 +19,7 @@ class NoteForm extends Component {
   }
 
   handleChanges = (ev) => {
-    const note = {...this.props.currentNote}
+    const note = { ...this.props.currentNote }
     note[ev.target.name] = ev.target.value
     this.props.saveNote(note)
   }
@@ -31,6 +31,7 @@ class NoteForm extends Component {
   render() {
     return (
       <div className="NoteForm">
+        <script src="//cdn.ckeditor.com/4.7.0/standard/ckeditor.js"></script>
         <form>
           <p>
             <input

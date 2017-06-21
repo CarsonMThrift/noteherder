@@ -1,28 +1,146 @@
-
-
-
 .SignInButton {
 
   background-color: white;
+
   border: 1;
-  border-radius: 5px;
-  border-color: steelblue;
+  border-radius: 10px;
+  border-color: white;
+
   color: steelblue;
   display: block;
   margin: 0 auto;
+
   margin-top: 2rem; 
   margin-bottom: 5rem;
   margin-left: 2rem;
   padding: 20px;
+
   -webkit-transition: background 0.2s;
   -o-transition: background 0.2s;
   transition: background 0.2s;
+
   font-family: 'helvetica neue', sans-serif;
   font-size: 20px;
   font-weight: 200;
   text-align: center;
+
   display: inline-block;
 
+  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
+
+  position: relative;
+
+  transition: color 0.25s;
+
+}
+
+.SignInButton::before,
+.SignInButton::after {
+  box-sizing: border-box;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.SignInButton:hover {
+    background-color : lightskyblue;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.SignInButton::before,
+.SignInButton::after {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  width: 0;
+  height: 0;
+}
+
+
+.SignInButton::before {
+  top: 0;
+  left: 0;
+}
+
+
+.SignInButton::after {
+  bottom: 0;
+  right: 0;
+}
+
+
+.SignInButton:hover::before,
+.SignInButton:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.SignInButton:hover::before {
+  border-radius: 10px;
+  border-top-color: steelblue; 
+  border-right-color: steelblue;
+  transition:
+    width 0.25s ease-out, 
+    height 0.25s ease-out 0.25s; 
+}
+
+.SignInButton:hover::after {
+  border-radius: 10px;
+  border-bottom-color: steelblue;
+  border-left-color: steelblue;
+  transition:
+    border-color 0s ease-out 0.5s, 
+    width 0.25s ease-out 0.5s, 
+    height 0.25s ease-out 0.75s;
+}
+
+
+.SignInButton::after {
+  top: 0;
+  left: 0;
+}
+
+.SignInButton:hover::before {
+  border-radius: 10px;
+  border-top-color: steelblue;
+  border-right-color: steelblue;
+}
+
+.SignInButton:hover::after {
+  border-radius: 10px;
+  border-bottom-color: steelblue;
+  border-left-color: steelblue;
+  transition: 
+    height 0.25s ease-out,
+    width 0.25s ease-out 0.25s;
+}
+
+
+.SignInButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.SignInButton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.SignInButton:hover span {
+  padding-right: 25px;
+}
+
+.SignInButton:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 #leftmost {
@@ -33,21 +151,29 @@
 
   height : 34px;
   width : 34px;
+
   margin-left: 15px;
 
 }
 
 .SignIn{
   margin-top: 20rem;
+
   background-color: steelblue;
 
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  font-size: 600%;
+  margin-bottom: -2rem;
+  margin-top: 2rem;
+  padding: 3rem;
+
+  font-size: 400%;
+}
+
+h1, h3 {
   color: white;
+
+  text-align: center;
 }
 

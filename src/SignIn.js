@@ -13,8 +13,9 @@ const SignIn = () => {
 
     <div className="SignIn">
 
-      <h1>Login</h1>
+      <h1>Welcome to Evern... errm, NoteHerder!</h1>
 
+      <h3><i>Select Your Preferred Account Provider Below</i></h3>
       
       <button
         className="SignInButton"
