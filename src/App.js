@@ -110,14 +110,17 @@ class App extends Component {
     return (
       <div className="App" >
         <Switch>
+          {/*If not signed in, redirect to sign in page*/}
           <Route path="/notes" render={() => (
-            <Main
-              {...noteData}
-              {...actions}
-            />
+            this.signedIn() 
+              ? <Main {...noteData} {...actions}/>
+              : <Redirect to="/sign-in" />
           )} />
-          {/*SignIn is auto return value*/}
-          <Route path="/sign-in" component={SignIn} />
+          <Route path="/sign-in" render ={() => (
+            !this.signedIn()
+              ? <SignIn />
+              : <Redirect to="/notes" />
+          )} />
           {/*Default redirects to the notes page*/}
           <Route render={() => <Redirect to="/notes"/>} />
         </Switch>
